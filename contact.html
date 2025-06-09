@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Ashiyana Design World</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body data-theme="light">
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <a href="index.html">
+                    <div class="logo">
+                    <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Final-logo-NuJ25xVlbxDuO8LFdsoXVPJgseZztE.png" alt="Ashiyana Design World">
+                    </div>
+                </a>
+                <ul class="nav-menu">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="about.html" class="nav-link">About</a></li>
+                    <li><a href="contact.html" class="nav-link active">Contact</a></li>
+                </ul>
+                <div class="header-actions">
+                    <button class="theme-toggle" id="themeToggle">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                    <a href="tel:+918900758833" class="call-now-btn">
+                        <i class="fas fa-phone"></i> Call Now
+                    </a>
+                </div>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Contact Hero Section -->
+    <section class="contact-hero">
+        <div class="container">
+            <div class="contact-hero-content">
+                <h1>Get In Touch</h1>
+                <p>Ready to transform your space? Let's discuss your project and bring your vision to life.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Information Section -->
+    <section class="contact-info-section">
+        <div class="container">
+            <div class="contact-grid">
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <h3>Visit Our Office</h3>
+                    <p>PC Sen Rd, opposite of Arambagh Girls High School, Arambag, West Bengal 712601</p>
+                </div>
+                
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <h3>Call Us</h3>
+                    <p>Ready to discuss your project?</p>
+                    <a href="tel:+918900758833" class="contact-link">+91 8900758833</a>
+                </div>
+                
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <h3>Email Us</h3>
+                    <p>Send us your requirements</p>
+                    <a href="mailto:ashiyanadesignworld@gmail.com" class="contact-link">ashiyanadesignworld@gmail.com</a>
+                </div>
+                
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <i class="fab fa-whatsapp"></i>
+                    </div>
+                    <h3>WhatsApp</h3>
+                    <p>Quick chat for instant queries</p>
+                    <a href="https://wa.me/918900758833" class="contact-link" target="_blank">Chat with us</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form Section -->
+    <section class="contact-form-section">
+        <div class="container">
+            <div class="contact-form-container">
+                <div class="rocket-icon">
+                    <i class="fas fa-rocket" style="font-size: 3rem; color: #3b82f6;"></i>
+                </div>
+                <h2>Let's Start Your Project</h2>
+                <p>Fill out the form below and we'll get back to you within 24 hours to discuss your project requirements.</p>
+                
+                <form class="contact-form" action="contact.php" method="POST">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <input type="text" name="name" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" name="email" placeholder="Your Email" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <input type="tel" name="phone" placeholder="Your Phone Number" required>
+                        </div>
+                        <div class="form-group">
+                            <select name="service" required>
+                                <option value="">Select Service</option>
+                                <option value="Interior Design">Interior Design</option>
+                                <option value="Architecture">Architecture</option>
+                                <option value="False Ceiling">False Ceiling</option>
+                                <option value="Electric & Plumbing">Electric & Plumbing</option>
+                                <option value="Flooring & Tiling">Flooring & Tiling</option>
+                                <option value="Woodwork">Woodwork</option>
+                                <option value="Painting & Finish">Painting & Finish</option>
+                                <option value="Windows & Doors">Windows & Doors</option>
+                                <option value="Complete Home Design">Complete Home Design</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <textarea name="message" placeholder="Tell us about your project requirements..." rows="6" required></textarea>
+                    </div>
+                    <button type="submit" class="send-message-btn">
+                        <i class="far fa-envelope"></i> Send Message
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map Section -->
+    <section class="contact-map-section">
+        <div class="container">
+            <div class="map-container">
+                <div class="map-header">
+                    <h2>Find Us on Map</h2>
+                    <p>Visit our office for a personal consultation</p>
+                </div>
+                <div class="map-embed">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3654.123456789!2d87.7811614!3d22.8815499!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39f8135247b55867%3A0xbbb8b26f97999223!2sAshiyana%20Design%20World!5e0!3m2!1sen!2sin!4v1234567890123!5m2!1sen!2sin"
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+                <div class="map-actions">
+                    <a href="https://www.google.com/maps/place/Ashiyana+Design+World/@22.8815499,87.7811614,17z/data=!3m1!4b1!4m6!3m5!1s0x39f8135247b55867:0xbbb8b26f97999223!8m2!3d22.8815499!4d87.7837363!16s%2Fg%2F11mdkxv9xv!5m1!1e4?entry=ttu&g_ep=EgoyMDI1MDYwNC4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="map-btn">
+                        <i class="fas fa-map-marked-alt"></i> Open in Google Maps
+                    </a>
+                    <a href="https://www.google.com/maps/dir//Ashiyana+Design+World,+PC+Sen+Rd,+opposite+of+Arambagh+Girls+High+School,+Arambag,+West+Bengal+712601" target="_blank" class="map-btn">
+                        <i class="fas fa-directions"></i> Get Directions
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Business Hours Section -->
+    <section class="business-hours-section">
+        <div class="container">
+            <h2 class="section-title">Business Hours</h2>
+            <div class="hours-grid">
+                <div class="hours-card">
+                    <h3>Office Hours</h3>
+                    <div class="hours-list">
+                        <div class="hours-item">
+                            <span>Monday - Friday</span>
+                            <span>9:00 AM - 7:00 PM</span>
+                        </div>
+                        <div class="hours-item">
+                            <span>Saturday</span>
+                            <span>9:00 AM - 5:00 PM</span>
+                        </div>
+                        <div class="hours-item">
+                            <span>Sunday</span>
+                            <span>10:00 AM - 4:00 PM</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="hours-card">
+                    <h3>Emergency Services</h3>
+                    <p>For urgent repairs and maintenance, we offer 24/7 emergency services. Call us anytime for immediate assistance.</p>
+                    <a href="tel:+918900758833" class="emergency-btn">
+                        <i class="fas fa-phone"></i> Emergency Contact
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Ashiyana Design World</h3>
+                    <p>Premium interior design, architectural planning, and top-tier worker services to build your dream space with elegance and innovation.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="index.html#worker-services">Worker Services</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <div class="contact-info">
+                        <p><i class="fas fa-map-marker-alt"></i> PC Sen Rd, opposite of Arambagh Girls High School, Arambag, West Bengal 712601</p>
+                        <p><i class="fas fa-phone"></i> <a href="tel:+918900758833">+918900758833</a></p>
+                        <p><i class="fas fa-envelope"></i> <a href="mailto:ashiyanadesignworld@gmail.com">ashiyanadesignworld@gmail.com</a></p>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Follow & Legal</h4>
+                    <div class="social-links">
+                        <a href="https://www.instagram.com/ashiyana_design?igsh=cmFjcWt3bXRhdXEx"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.youtube.com/channel/UC7GRLyy0otq8pdhM7J-BQ9w"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-telegram"></i></a>
+                        <a href="https://www.facebook.com/share/18mjuRc7bb/"><i class="fab fa-facebook"></i></a>
+                    </div>
+                    <div class="legal-links">
+                        <a href="privacy.html">Privacy Policy</a>
+                        <a href="terms.html">Terms & Conditions</a>
+                        <a href="vastu.html">Vastu Disclaimer</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 POWERED BY SMART SOFTWARE WORLD. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Floating Button -->
+    <div class="whatsapp-floating">
+        <a href="https://wa.me/918900758833" target="_blank" class="whatsapp-btn">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
