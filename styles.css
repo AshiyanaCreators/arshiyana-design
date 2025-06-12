@@ -1448,6 +1448,7 @@ body {
 
     .header {
     padding: 0.3rem 0; /* Add this if needed */
+    height: 80px;
     }
 
 
