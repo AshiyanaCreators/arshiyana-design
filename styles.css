@@ -80,7 +80,7 @@ body {
 }
 
 .navbar {
-    padding: 0.5rem 0;
+    padding: 0.2rem 0;
 }
 
 .nav-container {
@@ -89,7 +89,7 @@ body {
     align-items: center;
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 0 10px;
 }
 
 .logo {
@@ -102,7 +102,7 @@ body {
 }
 
 .logo img {
-    height: 100px;
+    height: 70px;
     width: auto;
     transition: all 0.3s ease;
 }
@@ -1445,6 +1445,12 @@ body {
 }
 
 @media (max-width: 768px) {
+
+    .header {
+    padding: 0.3rem 0; /* Add this if needed */
+    }
+
+
     .hamburger {
         display: flex;
     }
