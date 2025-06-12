@@ -475,8 +475,10 @@ body {
 .team-member {
     background: var(--bg-primary);
     border-radius: 20px;
-    overflow: hidden;
-    box-shadow: 0 10px 30px var(--shadow-light);
+    padding: 1rem;
+    text-align: center;
+    overflow: visible;
+    width: 300px;
     transition: all 0.3s ease;
     border: 2px solid var(--border-color);
 }
@@ -488,7 +490,10 @@ body {
 }
 
 .member-image {
-    height: 300px;
+    height: 200px;
+    width: 200px;
+    margin: 0 auto;
+    border-radius: 50%;
     overflow: hidden;
 }
 
@@ -504,22 +509,20 @@ body {
 }
 
 .member-info {
-    padding: 2rem;
-    text-align: center;
+    padding: 1rem;
 }
 
 .member-info h3 {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
+    font-weight: bold;
     color: var(--text-primary);
-    margin-bottom: 0.5rem;
-    font-weight: 600;
+    margin: 0;
 }
 
 .member-role {
     color: var(--accent-primary);
-    font-weight: 600;
-    margin-bottom: 1rem;
-    font-size: 1.1rem;
+    margin-top: 0.25rem;
+    font-size: 0.95rem;
 }
 
 .member-description {
