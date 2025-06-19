@@ -32,8 +32,8 @@
     --bg-secondary: #0f172a;
     --text-primary: #f8fafc;
     --text-secondary: #cbd5e1;
-    --accent-primary: #3b82f6;
-    --accent-secondary: #2563eb;
+    --accent-primary: #60a5fa;
+    --accent-secondary: #3b82f6;
     --border-color: #334155;
     --shadow-light: rgba(0, 0, 0, 0.2);
     --shadow-medium: rgba(0, 0, 0, 0.3);
@@ -61,26 +61,36 @@ body {
     padding: 0 20px;
 }
 
-/* Header Styles */
+/* Enhanced Header Styles */
 .header {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
     z-index: 1000;
-    box-shadow: 0 2px 10px var(--shadow-medium);
+    box-shadow: 0 2px 20px var(--shadow-medium);
     border-bottom: 3px solid var(--accent-primary);
-    transition: all 0.3s ease;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    height: 80px;
 }
 
 [data-theme="dark"] .header {
     background: rgba(30, 41, 59, 0.95);
+    border-bottom-color: var(--accent-primary);
+}
+
+.header.scrolled {
+    box-shadow: 0 4px 30px var(--shadow-heavy);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
 }
 
 .navbar {
-    padding: 0.2rem 0;
+    padding: 0.5rem 0;
+    height: 100%;
 }
 
 .nav-container {
@@ -89,7 +99,8 @@ body {
     align-items: center;
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 10px;
+    padding: 0 20px;
+    height: 100%;
 }
 
 .logo {
@@ -99,10 +110,11 @@ body {
     font-size: 1.5rem;
     font-weight: bold;
     color: var(--text-primary);
+    z-index: 1001;
 }
 
 .logo img {
-    height: 70px;
+    height: 60px;
     width: auto;
     transition: all 0.3s ease;
 }
@@ -116,6 +128,7 @@ body {
     display: flex;
     list-style: none;
     gap: 2rem;
+    align-items: center;
 }
 
 .nav-link {
@@ -155,27 +168,75 @@ body {
     display: flex;
     align-items: center;
     gap: 1rem;
+    z-index: 1001;
 }
 
+/* Enhanced Theme Toggle Styles */
 .theme-toggle {
-    background: var(--bg-secondary);
-    color: var(--text-primary);
-    border: 2px solid var(--border-color);
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
+    position: relative;
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50px;
+    padding: 0.6rem 1rem;
+    color: var(--accent-primary);
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     display: flex;
     align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    min-height: 44px;
+    min-width: 44px;
     justify-content: center;
+    user-select: none;
+    -webkit-user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    outline: none;
 }
 
 .theme-toggle:hover {
-    background: var(--accent-primary);
-    color: white;
-    transform: rotate(180deg);
-    border-color: var(--accent-primary);
+    background: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.3);
+    transform: translateY(-1px);
+}
+
+.theme-toggle:active {
+    transform: scale(0.95);
+}
+
+.theme-toggle:focus-visible {
+    outline: 2px solid var(--accent-primary);
+    outline-offset: 2px;
+}
+
+.theme-toggle i {
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    pointer-events: none;
+}
+
+.theme-text {
+    display: none;
+    pointer-events: none;
+}
+
+/* Dark theme toggle styles */
+[data-theme="dark"] .theme-toggle {
+    background: rgba(0, 0, 0, 0.2);
+    border-color: rgba(255, 255, 255, 0.3);
+    color: #fbbf24;
+}
+
+[data-theme="dark"] .theme-toggle:hover {
+    background: rgba(0, 0, 0, 0.3);
+    border-color: rgba(255, 255, 255, 0.4);
+}
+
+[data-theme="dark"] .theme-toggle:focus-visible {
+    outline-color: #fbbf24;
 }
 
 .call-now-btn {
@@ -193,6 +254,8 @@ body {
     box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
     text-decoration: none;
     font-size: 0.9rem;
+    min-height: 44px;
+    -webkit-tap-highlight-color: transparent;
 }
 
 .call-now-btn:hover {
@@ -200,25 +263,57 @@ body {
     box-shadow: 0 8px 25px rgba(59, 130, 246, 0.4);
 }
 
+/* Enhanced Hamburger Menu */
 .hamburger {
+    width: 44px;
+    height: 44px;
     display: none;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
     cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    background: transparent;
+    border: none;
+    gap: 4px;
+    -webkit-tap-highlight-color: transparent;
+    z-index: 1001;
 }
 
 .hamburger span {
-    width: 25px;
-    height: 3px;
+    width: 20px;
+    height: 2px;
     background: var(--text-primary);
-    margin: 3px 0;
-    transition: 0.3s;
-    border-radius: 2px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border-radius: 1px;
 }
 
-/* Hero Section - Updated with local image path */
+.hamburger:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.hamburger:active {
+    transform: scale(0.95);
+}
+
+.hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -6px);
+}
+
+/* Hero Section */
 .hero-section {
     height: 100vh;
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('images/living-room.jpg') no-repeat center center/cover;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/placeholder.svg?height=1080&width=1920&text=Modern+Interior+Design') no-repeat center center/cover;
     position: relative;
     display: flex;
     align-items: center;
@@ -235,20 +330,17 @@ body {
     padding: 0 20px;
 }
 
-/* FIXED: Removed text-shadow and any pseudo-elements that could cause duplication */
 .hero-content h1 {
     font-size: 3.5rem;
     margin-bottom: 1rem;
     font-weight: 700;
     animation: fadeInUp 1s ease;
-    /* Removed text-shadow completely */
 }
 
 .hero-content p {
     font-size: 1.5rem;
     margin-bottom: 2rem;
     animation: fadeInUp 1s ease 0.2s both;
-    /* Removed text-shadow completely */
 }
 
 .view-work-btn {
@@ -285,9 +377,9 @@ body {
 .about-hero,
 .contact-hero {
     padding: 150px 0 100px;
-    background: #f0f7ff;
-    color: #1e40af;
-    border: 2px solid #3b82f6;
+    background: var(--bg-secondary);
+    color: var(--text-primary);
+    border: 2px solid var(--accent-primary);
     text-align: center;
 }
 
@@ -296,6 +388,7 @@ body {
     font-size: 3rem;
     margin-bottom: 1rem;
     font-weight: 700;
+    color: var(--accent-primary);
 }
 
 .about-hero-content p,
@@ -303,6 +396,7 @@ body {
     font-size: 1.2rem;
     max-width: 600px;
     margin: 0 auto;
+    color: var(--text-secondary);
 }
 
 .our-story-section {
@@ -470,6 +564,7 @@ body {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2rem;
+    justify-items: center;
 }
 
 .team-member {
@@ -480,6 +575,8 @@ body {
     overflow: visible;
     transition: all 0.3s ease;
     border: 2px solid var(--border-color);
+    max-width: 350px;
+    width: 100%;
 }
 
 .team-member:hover {
@@ -533,7 +630,6 @@ body {
 .team-section .container {
     text-align: center;
 }
-
 
 /* Contact Page Styles */
 .contact-info-section {
@@ -1332,7 +1428,7 @@ body {
     font-size: 0.9rem;
 }
 
-/* WhatsApp Floating Button - Positioned in Middle */
+/* WhatsApp Floating Button */
 .whatsapp-floating {
     position: fixed;
     top: 50%;
@@ -1406,7 +1502,7 @@ body {
     box-shadow: 0 12px 35px rgba(59, 130, 246, 0.4);
 }
 
-/* Responsive Design */
+/* Enhanced Responsive Design */
 @media (max-width: 1200px) {
     .container {
         padding: 0 15px;
@@ -1442,15 +1538,24 @@ body {
     .story-stats {
         grid-template-columns: repeat(3, 1fr);
     }
+    
+    /* Tablet theme toggle */
+    .theme-toggle {
+        padding: 0.7rem 1.2rem;
+        gap: 0.6rem;
+    }
+    
+    .theme-text {
+        display: inline;
+        font-size: 0.85rem;
+    }
 }
 
 @media (max-width: 768px) {
-
     .header {
-    padding: 0.3rem 0; /* Add this if needed */
-    height: 80px;
+        padding: 0.3rem 0;
+        height: 80px;
     }
-
 
     .hamburger {
         display: flex;
@@ -1459,23 +1564,86 @@ body {
     .nav-menu {
         position: fixed;
         left: -100%;
-        top: 70px;
+        top: 80px;
         flex-direction: column;
-        background: var(--bg-primary);
+        background: rgba(255, 255, 255, 0.98);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
         width: 100%;
+        height: calc(100vh - 80px);
         text-align: center;
-        transition: 0.3s;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         box-shadow: 0 10px 27px var(--shadow-medium);
         padding: 2rem 0;
         border-top: 2px solid var(--accent-primary);
+        justify-content: flex-start;
+        align-items: center;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+        z-index: 999;
+    }
+    
+    [data-theme="dark"] .nav-menu {
+        background: rgba(30, 41, 59, 0.98);
     }
     
     .nav-menu.active {
         left: 0;
     }
     
+    .nav-menu li {
+        margin: 0.5rem 0;
+        width: 100%;
+    }
+    
+    .nav-link {
+        display: block;
+        padding: 1rem 2rem;
+        font-size: 1.1rem;
+        border-radius: 12px;
+        width: 90%;
+        margin: 0 auto;
+        min-height: 48px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .nav-link:hover,
+    .nav-link.active {
+        background: rgba(59, 130, 246, 0.1);
+        color: var(--accent-primary);
+    }
+    
+    [data-theme="dark"] .nav-link:hover,
+    [data-theme="dark"] .nav-link.active {
+        background: rgba(96, 165, 250, 0.2);
+        color: #60a5fa;
+    }
+    
     .header-actions {
-        display: none;
+        gap: 0.5rem;
+    }
+    
+    /* Mobile theme toggle */
+    .theme-toggle {
+        padding: 0.5rem;
+        border-radius: 50%;
+        width: 44px;
+        height: 44px;
+        min-width: 44px;
+        min-height: 44px;
+    }
+    
+    .theme-text {
+        display: none !important;
+    }
+    
+    .call-now-btn {
+        padding: 0.6rem 1rem;
+        font-size: 0.85rem;
+        min-height: 44px;
+        gap: 0.4rem;
     }
     
     .hero-content h1 {
@@ -1527,11 +1695,9 @@ body {
     }
 
     .team-grid {
-    grid-template-columns: 1fr;
-    justify-items: center; /* Add this to center items */
-}
-
-
+        grid-template-columns: 1fr;
+        justify-items: center;
+    }
 }
 
 @media (max-width: 480px) {
@@ -1568,7 +1734,7 @@ body {
     }
     
     .logo img {
-        height: 80px;
+        height: 50px;
     }
     
     .nav-container {
@@ -1582,6 +1748,27 @@ body {
     
     .story-text h2 {
         font-size: 2rem;
+    }
+    
+    /* Very small mobile theme toggle */
+    .theme-toggle {
+        width: 40px;
+        height: 40px;
+        min-width: 40px;
+        min-height: 40px;
+        padding: 0.4rem;
+    }
+    
+    .hamburger {
+        width: 40px;
+        height: 40px;
+        min-width: 40px;
+        min-height: 40px;
+    }
+    
+    .call-now-btn {
+        padding: 0.5rem 0.8rem;
+        font-size: 0.8rem;
     }
 }
 
@@ -1605,5 +1792,245 @@ body {
     .service-card {
         padding: 1rem;
     }
+    
+    .nav-container {
+        padding: 0 10px;
+    }
 }
 
+/* Touch device optimizations */
+@media (hover: none) and (pointer: coarse) {
+    .theme-toggle {
+        min-height: 48px;
+        min-width: 48px;
+        padding: 0.8rem;
+    }
+    
+    .theme-toggle:hover {
+        transform: none;
+    }
+    
+    .theme-toggle:active {
+        transform: scale(0.95);
+        background: rgba(255, 255, 255, 0.2);
+    }
+    
+    [data-theme="dark"] .theme-toggle:active {
+        background: rgba(0, 0, 0, 0.4);
+    }
+    
+    .nav-link {
+        min-height: 48px;
+    }
+    
+    .call-now-btn {
+        min-height: 48px;
+    }
+    
+    .hamburger {
+        min-height: 48px;
+        min-width: 48px;
+    }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+    .theme-toggle {
+        border-width: 3px;
+        border-color: currentColor;
+    }
+    
+    .hamburger span {
+        height: 3px;
+    }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+    .theme-toggle,
+    .theme-toggle i,
+    .hamburger,
+    .hamburger span,
+    .nav-menu,
+    .value-card::before,
+    .service-card::before {
+        transition: none;
+    }
+    
+    .whatsapp-floating {
+        animation: none;
+    }
+    
+    @keyframes fadeInUp {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
+}
+
+/* Landscape orientation on mobile */
+@media (max-width: 768px) and (orientation: landscape) {
+    .nav-menu {
+        height: calc(100vh - 60px);
+        top: 60px;
+        padding: 1rem;
+    }
+    
+    .nav-menu li {
+        margin: 0.3rem 0;
+    }
+    
+    .nav-link {
+        padding: 0.7rem 1.5rem;
+        font-size: 1rem;
+    }
+    
+    .header {
+        height: 60px;
+    }
+}
+
+/* iPad specific adjustments */
+@media (min-width: 768px) and (max-width: 1024px) and (-webkit-min-device-pixel-ratio: 1) {
+    .theme-toggle {
+        padding: 0.75rem 1.3rem;
+    }
+    
+    .header-actions {
+        gap: 1rem;
+    }
+}
+
+/* Ensure proper stacking context */
+.header {
+    position: relative;
+    z-index: 1000;
+}
+
+.nav-menu {
+    z-index: 999;
+}
+
+.theme-toggle {
+    z-index: 1001;
+}
+
+.hamburger {
+    z-index: 1001;
+}
+
+/* Prevent text selection on interactive elements */
+.theme-toggle,
+.hamburger,
+.nav-link,
+.call-now-btn {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/* Focus visible for keyboard navigation */
+.theme-toggle:focus-visible,
+.hamburger:focus-visible,
+.nav-link:focus-visible,
+.call-now-btn:focus-visible {
+    outline: 2px solid var(--accent-primary);
+    outline-offset: 2px;
+}
+
+[data-theme="dark"] .theme-toggle:focus-visible {
+    outline-color: #fbbf24;
+}
+
+/* Smooth transitions for theme changes */
+* {
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Additional mobile menu enhancements */
+.nav-container.menu-open {
+    position: relative;
+}
+
+.nav-container.menu-open::before {
+    content: '';
+    position: fixed;
+    top: 80px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 998;
+    opacity: 0;
+    animation: fadeIn 0.3s ease forwards;
+}
+
+@keyframes fadeIn {
+    to { opacity: 1; }
+}
+
+/* Notification styles for mobile feedback */
+.notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    left: 20px;
+    z-index: 10000;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+    transform: translateY(-100px);
+    opacity: 0;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.notification.show {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.notification-content {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 1.5rem;
+}
+
+.notification-success { border-left: 4px solid #10b981; }
+.notification-error { border-left: 4px solid #ef4444; }
+.notification-warning { border-left: 4px solid #f59e0b; }
+.notification-info { border-left: 4px solid #3b82f6; }
+
+.notification-close {
+    background: none;
+    border: none;
+    color: #6b7280;
+    cursor: pointer;
+    padding: 0.25rem;
+    border-radius: 4px;
+    margin-left: auto;
+    min-width: 32px;
+    min-height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.notification-close:hover {
+    background: rgba(0, 0, 0, 0.05);
+}
+
+[data-theme="dark"] .notification {
+    background: #1e293b;
+    color: #f1f5f9;
+}
+
+[data-theme="dark"] .notification-close {
+    color: #94a3b8;
+}
+
+[data-theme="dark"] .notification-close:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
